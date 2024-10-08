@@ -31,7 +31,28 @@ function App() {
     fetchPosts();
   }, []);
 
-  
+  // Conditional rendering based on loading, error, and posts
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div className="error-message">Error: {error}</div>;
+  }
+
+  return (
+    <div className="App">
+      <h1>Posts</h1>
+      <div className="posts-list">
+        {posts.map(post => (
+          <div key={post.id} className="post">
+            <h2>{post.id}. {post.title}</h2>
+            <p>{post.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 export default App;
