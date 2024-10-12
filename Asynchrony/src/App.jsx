@@ -13,7 +13,7 @@ function App() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch('https://jsonplaceholder.typicodecom/posts');
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts');
 
         // Check if the response is ok
         if (!response.ok) {
