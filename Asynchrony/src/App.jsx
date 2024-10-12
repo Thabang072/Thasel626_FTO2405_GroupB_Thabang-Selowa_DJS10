@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+// Import the error image
+import errorImage from './images/error-message.png'; // Assuming the image is in src/images/
 
 function App() {
   // State to hold posts and error messages
@@ -11,9 +13,9 @@ function App() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+        const response = await fetch('https://jsonplaceholder.typicodecom/posts');
 
-        // Check if the response is ok 
+        // Check if the response is ok
         if (!response.ok) {
           throw new Error('Failed to fetch posts');
         }
@@ -37,7 +39,12 @@ function App() {
   }
 
   if (error) {
-    return <div className="error-message">Error: {error}</div>;
+    return (
+      <div className="error-message">
+        <img src={errorImage} alt="Error" style={{ width: '400px', height: 'auto' }} />
+        
+      </div>
+    );
   }
 
   return (
